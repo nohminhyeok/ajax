@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+	<button type="button">실행</button>
+	<div>1</div>
+	<p>2</p>
+	<div>3</div>
+	<p>4</p>
+	<div>5</div>
+	
+	<span id="p1">mouseenter</span>
+	
+	<div id="hv">hover test</div>
+	
+	<script>
+		$('button').click(function(){
+			$('p').hide();
+		});
+		
+		$("p").click(function(){
+			$(this).hide();
+		});
+		
+		$("#p1").mouseenter(function(){
+			console.log("You entered p1!");
+		});
+		
+		$("#p1").mouseleave(function(){
+			console.log("Bye! You now leave p1!");
+		});
+		
+		$("#p1").mousedown(function(){
+			console.log("Mouse down over p1!");
+		});
+		
+		$("#hv").hover(function(){
+			console.log("You entered hv!");
+		});
+	</script>
+</body>
+</html>
