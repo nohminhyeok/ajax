@@ -23,18 +23,24 @@ public class MemberController {
 	public String joinMember(@RequestParam String id
 			                 ,@RequestParam String pw1
 	                         ,@RequestParam String gender
-	                         ,@RequestParam int age) {
+	                         ,@RequestParam int age
+	                         ,@RequestParam String postcode
+	                         ,@RequestParam String roadAddress
+	                         ,@RequestParam String jibunAddress
+	                         ,@RequestParam String detailAddress
+	                         ,@RequestParam String extraAddress) {
 
         MemberDto memberDto = new MemberDto();
         memberDto.setId(id);
         memberDto.setPw(pw1);
         memberDto.setGender(gender);
         memberDto.setAge(age);
+        memberDto.setAddress(postcode+" "+roadAddress+" "+jibunAddress+" "+detailAddress+" "+extraAddress);
 
         // 매퍼를 통해 DB에 직접 저장
         int result = memberMapper.insertMember(memberDto);
         if (result > 0) {
-            return "/test";
+            return "/welcome";
         }
         return "redirect:/";
     }
